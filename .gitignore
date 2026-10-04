@@ -1,0 +1,13 @@
+# 依赖 / 构建
+node_modules/
+dist/
+build/
+*.log
+.env
+.env.local
+__pycache__/
+*.pyc
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
