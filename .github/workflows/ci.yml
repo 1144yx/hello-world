@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Show context
+        run: echo "Pipeline on ${{ github.ref }} commit ${{ github.sha }}"
+      - name: List workspace
+        run: ls -la
+      - name: Finalize
+        run: echo "CI OK"
